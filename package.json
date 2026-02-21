@@ -1,0 +1,61 @@
+{
+    "name": "prompt-enhancer-local",
+    "displayName": "Prompt Enhancer Local",
+    "description": "Highlight a rough prompt comment, hit a hotkey, and have a local LLM rewrite it into a highly detailed, context-aware prompt.",
+    "version": "0.1.0",
+    "publisher": "dotheki",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dotheki/prompt-enhancer-local"
+    },
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "promptEnhancer.enhanceSelectedText",
+                "title": "Prompt Enhancer: Enhance Selected Text"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "promptEnhancer.enhanceSelectedText",
+                "key": "ctrl+shift+e",
+                "mac": "cmd+shift+r",
+                "when": "editorTextFocus"
+            }
+        ],
+        "configuration": {
+            "title": "Prompt Enhancer Local",
+            "properties": {
+                "promptEnhancer.llmEndpoint": {
+                    "type": "string",
+                    "default": "http://localhost:11434/api/generate",
+                    "description": "The endpoint URL for the local LLM server (e.g., Ollama)."
+                },
+                "promptEnhancer.model": {
+                    "type": "string",
+                    "default": "llama3",
+                    "description": "The model name to use when calling the local LLM."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "lint": "eslint src --ext ts"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.0",
+        "@types/vscode": "^1.85.0",
+        "typescript": "^5.3.3"
+    }
+}

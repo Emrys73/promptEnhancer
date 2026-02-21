@@ -1,0 +1,18 @@
+# Compiled output
+out/
+
+# Dependencies
+node_modules/
+
+# VSIX packages (distributed via GitHub Releases, not the repo)
+*.vsix
+
+# Source maps
+*.js.map
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/

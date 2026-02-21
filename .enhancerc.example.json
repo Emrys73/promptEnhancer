@@ -1,0 +1,6 @@
+{
+    "packageManager": "pnpm",
+    "styling": "Tailwind CSS",
+    "testingFramework": "Vitest",
+    "customRules": "Use functional components. Prefer composition over inheritance."
+}
