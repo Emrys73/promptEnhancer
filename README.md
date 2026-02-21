@@ -65,40 +65,35 @@ You should see `llama3` (or whichever model you downloaded) in the list. If you 
 
 ## 📦 Installing the Extension
 
-### Option A: Run in Development Mode (Recommended for First Time)
+### Step 1: Download the Extension
 
-1. **Open the `promptEnhancer` folder** in VS Code or Antigravity IDE
-   - Go to `File → Open Folder…` and navigate to the `promptEnhancer` folder
-2. **Install dependencies** — open the built-in Terminal (`Ctrl+`` ` or `Cmd+`` ` on Mac) and run:
-   ```bash
-   npm install
-   ```
-3. **Compile the code** — in the same Terminal, run:
-   ```bash
-   npm run compile
-   ```
-4. **Launch the extension** — press **F5** on your keyboard
-   - This opens a **brand new VS Code window** called the **Extension Development Host**
-   - This new window has your extension loaded and ready to use
-   - The original window stays open for debugging (you can minimize it)
+1. Go to the [**GitHub Releases**](https://github.com/dotheki/prompt-enhancer-local/releases) page
+2. Find the latest release (e.g., `v0.1.0`)
+3. Under **Assets**, click on `prompt-enhancer-local-0.1.0.vsix` to download it
+4. Save it somewhere easy to find (like your **Downloads** folder)
 
-> **📝 Note:** Every time you want to use the extension during development, you'll press F5 from the `promptEnhancer` project. In the future, you can package it as a `.vsix` file for permanent installation (see [Packaging for Permanent Use](#-packaging-for-permanent-use) below).
+### Step 2: Install in Your IDE
 
-### Option B: Install Permanently as a `.vsix` Package
+#### For VS Code:
 
-```bash
-# Install the packaging tool (one-time setup)
-npm install -g @vscode/vsce
+1. Open **VS Code**
+2. Open the **Command Palette** — press `Cmd + Shift + P` (Mac) or `Ctrl + Shift + P` (Windows/Linux)
+3. Type **"Install from VSIX"** — you'll see an option called **"Extensions: Install from VSIX..."**, click it
+4. A file browser will open — navigate to where you saved the `.vsix` file and select it
+5. Wait a few seconds — you'll see a notification saying the extension was installed
+6. Click **"Reload Now"** (or restart VS Code) to activate the extension
 
-# Build the package
-cd /path/to/promptEnhancer
-vsce package
+#### For Antigravity IDE / Cursor / Other VS Code Forks:
 
-# Install into your IDE
-code --install-extension prompt-enhancer-local-0.1.0.vsix
-```
+The process is the same — open the Command Palette (`Cmd + Shift + P`), search for **"Install from VSIX"**, and select the downloaded file.
 
-After this, the extension is permanently installed — no need to press F5 anymore.
+### Step 3: Verify Installation
+
+1. Open the **Extensions** sidebar — click the puzzle piece icon on the left sidebar, or press `Cmd + Shift + X` (Mac)
+2. Search for **"Prompt Enhancer"**
+3. You should see it listed as **installed** ✅
+
+> **That's it!** No cloning, no terminal commands, no compiling. The extension is now permanently installed and ready to use.
 
 ---
 
@@ -282,6 +277,36 @@ promptEnhancer/
 
 ---
 
-## 📜 License
+## �️ For Developers (Contributing / Modifying the Code)
+
+If you want to modify the extension or contribute to it, follow these steps:
+
+### 1. Clone & Install
+
+```bash
+git clone https://github.com/dotheki/prompt-enhancer-local.git
+cd prompt-enhancer-local
+npm install        # or: pnpm install
+```
+
+### 2. Run in Debug Mode
+
+1. Open the project folder in VS Code / Antigravity IDE
+2. Press **F5** — this opens a second IDE window (called the **Extension Development Host**) with your extension loaded
+3. Make changes to the code in `src/`, then press **Ctrl+Shift+F5** to restart and test again
+4. You can set breakpoints, view `console.log` output in the Debug Console, and step through the code
+
+### 3. Repackage After Changes
+
+```bash
+npm run compile
+pnpm dlx @vscode/vsce package --allow-missing-repository
+```
+
+This creates a new `.vsix` file you can share or install.
+
+---
+
+## �📜 License
 
 MIT — use it however you like.
