@@ -97,7 +97,7 @@ The process is the same — open the Command Palette (`Cmd + Shift + P`), search
 
 ---
 
-## 🚀 How to Use the Extension
+##  How to Use the Extension
 
 ### The Basic Workflow
 
